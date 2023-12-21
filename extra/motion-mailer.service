@@ -1,0 +1,16 @@
+# /etc/systemd/system/motion-mailer.service
+
+[Unit]
+Description=Motion Mailer
+After=multi-user.target
+#Requires=network.target
+
+[Service]
+User=root
+Type=simple
+Restart=always
+RestartSec=5
+ExecStart=/usr/bin/python3 /root/services/mailer/watchman.py
+
+[Install]
+WantedBy=multi-user.target

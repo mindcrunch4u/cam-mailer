@@ -1,7 +1,7 @@
 # Things to do before running the script
 Before executing `watchman.py`
 
-## motion.conf
+## extra/motion.conf
 Edit "target" in motion.conf
 and copy it to /etc/motion/motion.conf
 
@@ -15,7 +15,7 @@ apt install v4l-utils
 v4l2-ctl --list-device
 ```
 
-## motion-mailer.service
+## extra/motion-mailer.service
 Edit "ExecStart" and "User" in motion-mailer.service
 change the path to the script if yours is different
 change the user if don't want to use `root`
