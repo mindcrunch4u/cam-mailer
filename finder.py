@@ -1,5 +1,6 @@
 import os
 import pickle
+from configuration import default_misc_config
 
 def find_new_files(folder_path):
     # Ensure the folder path is valid
@@ -17,7 +18,7 @@ def find_new_files(folder_path):
         saved_files = set()
 
     # Get the current list of JPG files in the folder
-    current_files = set(file for file in os.listdir(folder_path) if file.lower().endswith('.jpg'))
+    current_files = set(file for file in os.listdir(folder_path) if file.lower().endswith(default_misc_config.image_extension))
 
     # Identify new files and deleted files
     new_files = current_files - saved_files

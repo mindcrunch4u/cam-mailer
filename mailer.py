@@ -5,23 +5,13 @@ from email.mime.base import MIMEBase
 from email.mime.image import MIMEImage
 from email import encoders
 from datetime import datetime
+from configuration import default_mail_config, default_misc_config
 import base64
 import os
 
-class MailConfiguration:
-    def __init__(self):
-        self.send_from="<from>"
-        self.send_to="<to1>,<to2>"
-        self.login_account = self.send_from
-        self.login_password = "<password>"
-        self.smtp_server = "<server>"
-        self.smtp_port = 587 # STRTTLS
-
-        self.default_subject = "Automated Message"
-
 
 log_file=None
-log_file_path="<path/to/log/file>"
+log_file_path=default_misc_config.path_log_file
 def log(content):
     global log_file
     global log_file_path
@@ -34,7 +24,7 @@ def log(content):
 
 
 def send_mail_with_images(folder_path, list_of_image_paths):
-        mc = MailConfiguration()
+        mc = default_mail_config
 
         if len(list_of_image_paths) <= 0:
             log("No new images found.")
@@ -74,7 +64,7 @@ def send_mail_with_images(folder_path, list_of_image_paths):
         log("Mail sent: {}".format(result))
 
 def send_mail_with_a_video(path_to_video):
-        mc = MailConfiguration()
+        mc = default_mail_config
 
         msg = MIMEMultipart()
         msg["Subject"] = mc.default_subject

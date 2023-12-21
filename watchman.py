@@ -7,9 +7,10 @@ from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 import base64
 import os
+from configuration import default_misc_config
 
 sync_delay = 5
-folder_path = "<path/to/stored/images>"
+folder_path = default_misc_config.path_image_folder
 
 while True:
         try:
