@@ -15,8 +15,8 @@ class MiscsConfiguration:
 
 # edit default_mail_config to change the behaviour of the mailer
 default_mail_config = MailConfiguration()
-default_mail_config.send_from="..."
-default_mail_config.send_to="..."
+default_mail_config.send_from="..." # your email account, for example: bob@test.com
+default_mail_config.send_to="..." # your receipients, if there are multiple receipients, use "," to separate them.
 default_mail_config.login_password = "..."
 default_mail_config.smtp_server = "..."
 default_mail_config.smtp_port = 587
