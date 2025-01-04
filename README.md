@@ -1,6 +1,9 @@
-# Preparation
 
-The main script `watchman.py` starts a dead loop which manages changes in the image folder, and it sends new images to the mail server after `sync_delay`.
+# About
+
+The main script `watchman.py` starts an infinite loop which manages changes in the image folder, and it sends new images to the mail server after `sync_delay`.
+
+# Quick Start
 
 ## Configure Motion
 
@@ -17,7 +20,7 @@ Edit `/etc/default/motion` so that it only contains:
 start_motion_daemon=yes
 ```
 
-## Configure the Service
+## Add the Mailer Service
 
 Edit `extra/motion-mailer.service`:
 - Update `ExecStart` to match the path of the source code.
@@ -25,7 +28,7 @@ Edit `extra/motion-mailer.service`:
 
 Copy the `extra/motion-mailer.service` to `/etc/systemd/system/`.
 
-## Edit configuration.py
+## Edit `configuration.py`
 
 Edit this file to configure your mailing service
 
@@ -58,7 +61,7 @@ chown -R motion:motion /var/lib/motion
 
 Since both `motion` and `motion-mailer` use a shared `images` folder, you have to also manage the permission for this folder (configured in `configuration.py` by `path_image_folder`). 
 
-## Start the Service
+## Start All Services
 
 1. Start `motion`: `systemctl restart motion`
 2. Start the mailer: `systemctl restart motion-mailer`
